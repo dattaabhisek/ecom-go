@@ -1,0 +1,9 @@
+{
+    "database": {
+        "host": "localhost",
+        "password": "3306"
+    },
+    "host": "localhost",
+    "port": "8080",
+	"coupon_timeout": "10"
+}
