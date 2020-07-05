@@ -1,0 +1,86 @@
+{{ define "Cart" }}
+<html>
+	<head>
+		<title>Items in the Cart</title>
+		<style>
+		.myDiv {
+		border: 1px outset black;
+		background-color: white;    
+		text-align: center;
+		width: 80%;
+		padding: 20px 20px;
+		position: absolute;
+		left: 8%;
+		}
+		
+		#customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		}
+
+		#customers td, #customers th {
+		border: 1px solid #ddd;
+		padding: 8px;
+		}
+
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+		#customers tr:hover {background-color: #ddd;}
+
+		#customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+		}
+
+		</style>
+	</head>
+	<body>
+		<h3 style="font-size:4vw;" align="center">Cart Info</h3>
+		
+		<div class="myDiv" >
+		<a href="/coupon" style="font-size:20px">Apply Coupon</a>  &nbsp &nbsp <a href="/product" style="font-size:20px">Continue shopping</a> &nbsp &nbsp<a href="/payment" style="font-size:20px">Check Out</a>&nbsp &nbsp <a href="/logout" style="font-size:20px">Log Out</a>
+		<br>
+		<br>
+		<table border="1" align="center" id="customers">
+			<tr>
+				
+				
+				<td>Name</td>
+				<td>Photo</td>
+				<td>Price</td>
+				<td>Quantity</td>
+				<td>Discount</td>
+				<td>Sub Total</td>
+				
+				</tr>
+				{{range .}}
+					<tr>
+						
+						
+						<td>{{.Name}}</td>
+						<td>
+							<img src="images/{{.Photo}}" width="120">
+					
+						</td>
+						<td>€{{.Price}}/pc</td>
+						<td>{{.Quantity}}</td>
+						<td>{{.Discount}}%</td>
+						<td>€{{.Subtotal}}</td>
+
+					</tr>
+					
+				<td colspan="5" align="right">Total Price:</td>
+				<td>€{{.Total}}</td>
+				
+				{{end}}
+		</table>
+		</div>
+		<br>
+		
+	</body>
+</html>
+{{ end }}

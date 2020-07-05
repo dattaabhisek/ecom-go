@@ -1,0 +1,86 @@
+{{ define "Index" }}
+<html>
+	<head>
+		<style>
+		.myDiv {
+		border: 1px outset black;
+		background-color: white;    
+		text-align: center;
+		width: 80%;
+		padding: 20px 20px;
+		position: absolute;
+		left: 8%;
+		}
+		
+		#customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		}
+
+		#customers td, #customers th {
+		border: 1px solid #ddd;
+		padding: 8px;
+		}
+
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+		#customers tr:hover {background-color: #ddd;}
+
+		#customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+		}
+
+		</style>
+
+		<title>Product List</title>
+	</head>
+	<body>
+
+		<h3 style="font-size:4vw;" align="center">Product List</h3>
+		<div class="myDiv" >
+		<a href="/viewcart" style="font-size:20px">View Cart</a>  &nbsp &nbsp <a href="/logout" style="font-size:20px">Log Out</a>
+		<br>
+		<br>
+		<table border="1" align="center" id="customers">
+			<tr>
+				
+				<td>Id</td>
+				<td>Name</td>
+				<td>Offer</td>
+				<td>Photo</td>
+				<td>Price</td>
+				<td>Quantity</td>
+				<td>Action</td>
+				</tr>
+				{{range .}}
+					<tr>
+						
+						<td>{{.Id}}</td>
+						<td>{{.Name}}</td>
+						<td>{{.Description}}</td>
+						
+						<td>
+							<img src="images/{{.Photo}}" width="120">
+					
+						</td>
+						<td>{{.Price}} €/pc</td>
+						<td>{{.Quantity}}</td>
+						<td>
+							<a href="/cart?id={{.Id}}">Add Item</a><br><a href="/removecart?id={{.Id}}">Remove Item</a><br>
+						</td>
+						
+					</tr>
+				{{end}}
+				
+		
+		</table>
+		</div>
+
+	</body>
+</html>
+{{ end }}

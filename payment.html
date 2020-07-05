@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{{ define "Payment" }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+		.myDiv {
+		border: 1px outset black;
+		background-color: white;    
+		text-align: center;
+		width: 80%;
+		padding: 20px 20px;
+		position: absolute;
+		left: 8%;
+		}
+		
+		#customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		}
+
+		#customers td, #customers th {
+		border: 1px solid #ddd;
+		padding: 8px;
+		}
+
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+		#customers tr:hover {background-color: #ddd;}
+
+		#customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+		}
+
+		</style>
+</head>
+<body>
+    <h1  style="font-size:4vw;" align="center">Payment Page</h1>
+	<div class="myDiv" >
+	<a href="/viewcart" style="font-size:20px">View Cart</a>  &nbsp &nbsp <a href="/logout" style="font-size:20px">Log Out</a> &nbsp &nbsp <a href="/product" style="font-size:20px">Continue shopping</a>
+	<br>
+	<br>
+	<form method="POST" action="/payment_status">
+		<label style="font-size:24px" for="cname">Name on Card</label>
+		<br>
+            <input style="font-size:24px" type="text" id="cname" name="cardname" oninvalid="alert('Please provide Name on Card!');" required>
+			<br>
+            <label style="font-size:24px" for="ccnum" >Credit card number</label>
+            <br>
+			<input style="font-size:24px" type="text" id="ccnum" name="cardnumber" oninvalid="alert('Please provide Card Number!');" required>
+            <br>
+			<label style="font-size:24px" for="expmonth">Exp Month</label>
+            <br>
+			<input style="font-size:24px" type="text" id="expmonth" name="expmonth" oninvalid="alert('Please provide Exp Month!');" required>
+		<br>
+		<h4 color="red">Coupon Code: {{.CouponCode}}</h4>
+		
+		<h4 color="red">Payable Amount: €{{.Total}}</h4>
+		<h4 color="red">Payable Amount(After coupon): €{{.FinalAmt}}</h4>
+		
+		
+        <input style="font-size:24px"type="submit" value="Proceed for Payment">
+    </form>
+	</div>
+	
+</body>
+</html>
+{{end}}

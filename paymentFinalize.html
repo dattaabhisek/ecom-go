@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{{ define "Coupon" }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1  style="font-size:4vw;">Payment Page</h1>
+	<form method="POST" action="/payment_finalyze">
+		<h4 color="red">Coupon Code:{{.CouponCode}}</h4>
+		<h4 color="red">Final Amount to pay: {{.Total}}</h4>
+        <input type="submit" value="Pay">
+    </form>
+</body>
+</html>
+{{end}}

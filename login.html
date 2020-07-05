@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	
+	<style>
+		.myDiv {
+		border: 1px outset black;
+		background-color: white;    
+		text-align: center;
+		width: 80%;
+		padding: 20px 20px;
+		position: absolute;
+		left: 8%;
+		}
+	</style>
+
+</head>
+<body>
+    <h1 style="font-size:4vw;" align="center">Login Page</h1>
+	<div class="myDiv">
+	<a href="/" style="font-size:20px">Home</a> 
+	<br>
+	<br>
+    <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="username" style="font-size:24px"><br><br>
+        <input type="password" name="password" placeholder="password" style="font-size:24px"><br><br>
+        <input type="submit" value="Submit" style="font-size:24px">
+    </form>
+	</div>
+</body>
+</html>

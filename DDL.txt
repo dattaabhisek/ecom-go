@@ -1,0 +1,41 @@
+create table product (
+Id int(10),
+Name varchar(20),
+Price float(10),
+Quantity int(100),
+Description varchar(100),
+Photo varchar(50)
+);
+
+create table cart (
+Id int(10),
+Name varchar(20),
+Price float(10),
+Quantity int(100),
+Description varchar(100),
+Photo varchar(50),
+Subtotal float(10),
+Total float(10)
+);
+
+v2
+create table cart (
+Id int(10),
+Name varchar(20),
+Price float(10),
+Quantity int(100),
+Description varchar(100),
+Photo varchar(50),
+Discount float(10),
+Coupon varchar(10),
+Username varchar(50),
+Cart_status varchar(10), 
+Subtotal float(10),
+Total float(10)
+);
+
+
+insert into product values(1,"Apple",2.0,2,"Buy 7 or more and get 10% off","apple.jpg");
+insert into product values(2,"Banana",1.5,2,"Buy 2 banana with 4 pears and get 30% off","Banana-Single.jpg");
+insert into product values(3,"Pears",4.0,2,"Buy 4 pears with 2 banana and get 30% off","pears.jpg");
+insert into product values(4,"Orange",4.0,2,"Fresh from Garden","orange.jpg");

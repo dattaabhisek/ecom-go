@@ -1,0 +1,43 @@
+{{ define "Index" }}
+<html>
+	<head>
+		<title>Product List</title>
+	</head>
+	<body>
+
+		<h3 style="font-size:4vw;">Product List</h3>
+		<table border="1">
+			<tr>
+				
+				<td>Id</td>
+				<td>Name</td>
+				<td>Photo</td>
+				<td>Price</td>
+				<td>Quantity</td>
+				<td>Action</td>
+				</tr>
+				{{range .}}
+					<tr>
+						
+						<td>{{.Id}}</td>
+						<td>{{.Name}}</td>
+						<td>
+							<img src="images/{{.Photo}}" width="120">
+					
+						</td>
+						<td>{{.Price}} €/pc</td>
+						<td>{{.Quantity}}</td>
+						<td>
+						<a href="/cart?id={{.Id}}">Add</a><br>
+						
+						</td>
+						
+					</tr>
+				{{end}}
+				
+		
+		</table>
+		<a href="/viewcart">View Cart</a><br>
+	</body>
+</html>
+{{ end }}
